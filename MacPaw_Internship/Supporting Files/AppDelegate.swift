@@ -73,6 +73,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return container
     }()
 
+    lazy var fetchedResultController: NSFetchedResultsController<Game> = {
+        let fetchRequest = NSFetchRequest<Game>(entityName: "Game")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "year", ascending: true)]
+        let context = persistentContainer.viewContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        return frc
+    }()
+    
     // MARK: - Core Data Saving support
 
     func saveContext () {
