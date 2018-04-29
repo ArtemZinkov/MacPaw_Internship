@@ -7,29 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC4AFE1620956733004BD25B /* MacPaw_Internship.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC4AFE1420956733004BD25B /* MacPaw_Internship.xcdatamodeld */; };
 		ACA0DB71208E126C00A962C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA0DB70208E126C00A962C4 /* AppDelegate.swift */; };
-		ACA0DB73208E126C00A962C4 /* GamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA0DB72208E126C00A962C4 /* GamesTableViewController.swift */; };
+		ACA0DB73208E126C00A962C4 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA0DB72208E126C00A962C4 /* GamesViewController.swift */; };
 		ACA0DB76208E126C00A962C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA0DB74208E126C00A962C4 /* Main.storyboard */; };
 		ACA0DB7B208E127100A962C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACA0DB7A208E127100A962C4 /* Assets.xcassets */; };
 		ACA0DB7E208E127100A962C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA0DB7C208E127100A962C4 /* LaunchScreen.storyboard */; };
 		ACA0DB87208E3A7200A962C4 /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA0DB86208E3A7200A962C4 /* GameCell.swift */; };
 		ACA0DB8B208F38E400A962C4 /* AddingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA0DB8A208F38E400A962C4 /* AddingGameView.swift */; };
-		ACA0DB8E208F441300A962C4 /* MacPaw_Internship.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACA0DB8C208F441200A962C4 /* MacPaw_Internship.xcdatamodeld */; };
-		ACA0DB922091EF3F00A962C4 /* AddingGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA0DB912091EF3F00A962C4 /* AddingGameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC4AFE1520956733004BD25B /* MacPaw_Internship.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MacPaw_Internship.xcdatamodel; sourceTree = "<group>"; };
 		ACA0DB6D208E126C00A962C4 /* MacPaw_Internship.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacPaw_Internship.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA0DB70208E126C00A962C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ACA0DB72208E126C00A962C4 /* GamesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesTableViewController.swift; sourceTree = "<group>"; };
+		ACA0DB72208E126C00A962C4 /* GamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
 		ACA0DB75208E126C00A962C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ACA0DB7A208E127100A962C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACA0DB7D208E127100A962C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACA0DB7F208E127100A962C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACA0DB86208E3A7200A962C4 /* GameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
 		ACA0DB8A208F38E400A962C4 /* AddingGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingGameView.swift; sourceTree = "<group>"; };
-		ACA0DB8D208F441300A962C4 /* MacPaw_Internship.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MacPaw_Internship.xcdatamodel; sourceTree = "<group>"; };
-		ACA0DB912091EF3F00A962C4 /* AddingGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingGameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,10 +61,9 @@
 			isa = PBXGroup;
 			children = (
 				ACA0DB85208E331600A962C4 /* Supporting Files */,
-				ACA0DB72208E126C00A962C4 /* GamesTableViewController.swift */,
+				ACA0DB72208E126C00A962C4 /* GamesViewController.swift */,
 				ACA0DB86208E3A7200A962C4 /* GameCell.swift */,
 				ACA0DB8A208F38E400A962C4 /* AddingGameView.swift */,
-				ACA0DB912091EF3F00A962C4 /* AddingGameViewController.swift */,
 				ACA0DB74208E126C00A962C4 /* Main.storyboard */,
 			);
 			path = MacPaw_Internship;
@@ -79,7 +76,7 @@
 				ACA0DB7A208E127100A962C4 /* Assets.xcassets */,
 				ACA0DB7C208E127100A962C4 /* LaunchScreen.storyboard */,
 				ACA0DB7F208E127100A962C4 /* Info.plist */,
-				ACA0DB8C208F441200A962C4 /* MacPaw_Internship.xcdatamodeld */,
+				AC4AFE1420956733004BD25B /* MacPaw_Internship.xcdatamodeld */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -156,11 +153,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACA0DB8B208F38E400A962C4 /* AddingGameView.swift in Sources */,
-				ACA0DB73208E126C00A962C4 /* GamesTableViewController.swift in Sources */,
+				ACA0DB73208E126C00A962C4 /* GamesViewController.swift in Sources */,
 				ACA0DB71208E126C00A962C4 /* AppDelegate.swift in Sources */,
-				ACA0DB8E208F441300A962C4 /* MacPaw_Internship.xcdatamodeld in Sources */,
+				AC4AFE1620956733004BD25B /* MacPaw_Internship.xcdatamodeld in Sources */,
 				ACA0DB87208E3A7200A962C4 /* GameCell.swift in Sources */,
-				ACA0DB922091EF3F00A962C4 /* AddingGameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,12 +356,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		ACA0DB8C208F441200A962C4 /* MacPaw_Internship.xcdatamodeld */ = {
+		AC4AFE1420956733004BD25B /* MacPaw_Internship.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				ACA0DB8D208F441300A962C4 /* MacPaw_Internship.xcdatamodel */,
+				AC4AFE1520956733004BD25B /* MacPaw_Internship.xcdatamodel */,
 			);
-			currentVersion = ACA0DB8D208F441300A962C4 /* MacPaw_Internship.xcdatamodel */;
+			currentVersion = AC4AFE1520956733004BD25B /* MacPaw_Internship.xcdatamodel */;
 			path = MacPaw_Internship.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
