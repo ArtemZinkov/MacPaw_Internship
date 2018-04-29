@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     
     private var effect: UIVisualEffect!
     private lazy var container = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
@@ -41,7 +41,10 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         addGameView.alpha = 0
         addGameView.layer.cornerRadius = 5.0
         addGameView.gameDescription.layer.cornerRadius = 5.0
-        addGameView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(_:))))
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        tap.delegate = self
+        addGameView.addGestureRecognizer(tap)
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
@@ -49,6 +52,26 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
             imagePicker.sourceType = .photoLibrary
             present(imagePicker, animated: true, completion: nil)
         }
+        
+        if addGameView.datePicker.frame.contains(sender.location(in: addGameView)) || addGameView.genre.frame.contains(sender.location(in: addGameView)) {
+            UIView.animate(withDuration: 0.5) { [weak self] in
+                if let weakSelf = self {
+                    var genreFrame = weakSelf.addGameView.genre.frame
+                    var dateFrame = weakSelf.addGameView.datePicker.frame
+
+                    let multiplier = genreFrame.height / dateFrame.height
+
+                    genreFrame = CGRect(origin: genreFrame.origin, size: CGSize(width: genreFrame.width, height: genreFrame.height * 1 / multiplier))
+                    dateFrame = CGRect(origin: dateFrame.origin, size: CGSize(width: dateFrame.width, height: dateFrame.height * multiplier))
+                    
+                    genreFrame.origin.y += ((multiplier < 1 ? -1 : 2) * (genreFrame.origin.y - dateFrame.origin.y + 8)) / 2
+                    
+                    weakSelf.addGameView.genre.frame = genreFrame
+                    weakSelf.addGameView.datePicker.frame = dateFrame
+                }
+            }
+        }
+
     }
     
     @IBAction func hideAddGameView(_ sender: UIButton) {
@@ -148,5 +171,9 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         addGameView.poster.image = #imageLiteral(resourceName: "addImage")
         addGameView.poster.alpha = 0.5
         imagePicker.dismiss(animated: true, completion: nil)
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }
