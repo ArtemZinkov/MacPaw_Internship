@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		AC4AFE1620956733004BD25B /* MacPaw_Internship.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC4AFE1420956733004BD25B /* MacPaw_Internship.xcdatamodeld */; };
+		AC4F69F92097DBDA0096E555 /* UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4F69F82097DBDA0096E555 /* UITableViewDelegate.swift */; };
+		AC4F69FC2097DE490096E555 /* UIPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4F69FB2097DE490096E555 /* UIPickerViewDelegate.swift */; };
+		AC4F69FE2097DF860096E555 /* UIImagePickerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4F69FD2097DF860096E555 /* UIImagePickerViewControllerDelegate.swift */; };
+		AC4F6A022097E5860096E555 /* UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4F6A012097E5860096E555 /* UITableViewDataSource.swift */; };
+		AC683A302097E73E00047585 /* UIPickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC683A2F2097E73E00047585 /* UIPickerViewDataSource.swift */; };
 		ACA0DB71208E126C00A962C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA0DB70208E126C00A962C4 /* AppDelegate.swift */; };
 		ACA0DB73208E126C00A962C4 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA0DB72208E126C00A962C4 /* GamesViewController.swift */; };
 		ACA0DB76208E126C00A962C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA0DB74208E126C00A962C4 /* Main.storyboard */; };
@@ -15,10 +20,21 @@
 		ACA0DB7E208E127100A962C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA0DB7C208E127100A962C4 /* LaunchScreen.storyboard */; };
 		ACA0DB87208E3A7200A962C4 /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA0DB86208E3A7200A962C4 /* GameCell.swift */; };
 		ACA0DB8B208F38E400A962C4 /* AddingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA0DB8A208F38E400A962C4 /* AddingGameView.swift */; };
+		ACC63AB32097F5BF001559F6 /* FilterGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC63AB22097F5BF001559F6 /* FilterGame.swift */; };
+		ACC63AB52097F65F001559F6 /* SaveGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC63AB42097F65F001559F6 /* SaveGame.swift */; };
+		ACC63AB72097F7F4001559F6 /* GetCurrentYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC63AB62097F7F4001559F6 /* GetCurrentYear.swift */; };
+		ACC63AB92097FF3D001559F6 /* UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC63AB82097FF3C001559F6 /* UIGestureRecognizerDelegate.swift */; };
+		ACC63ABB20980013001559F6 /* ShowAddingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC63ABA20980013001559F6 /* ShowAddingGameView.swift */; };
+		ACC63AC0209801A7001559F6 /* HideAddingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC63ABF209801A7001559F6 /* HideAddingGameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AC4AFE1520956733004BD25B /* MacPaw_Internship.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MacPaw_Internship.xcdatamodel; sourceTree = "<group>"; };
+		AC4F69F82097DBDA0096E555 /* UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewDelegate.swift; sourceTree = "<group>"; };
+		AC4F69FB2097DE490096E555 /* UIPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPickerViewDelegate.swift; sourceTree = "<group>"; };
+		AC4F69FD2097DF860096E555 /* UIImagePickerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImagePickerViewControllerDelegate.swift; sourceTree = "<group>"; };
+		AC4F6A012097E5860096E555 /* UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UITableViewDataSource.swift; path = ../UITableViewDataSource.swift; sourceTree = "<group>"; };
+		AC683A2F2097E73E00047585 /* UIPickerViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPickerViewDataSource.swift; sourceTree = "<group>"; };
 		ACA0DB6D208E126C00A962C4 /* MacPaw_Internship.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacPaw_Internship.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA0DB70208E126C00A962C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACA0DB72208E126C00A962C4 /* GamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +44,12 @@
 		ACA0DB7F208E127100A962C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACA0DB86208E3A7200A962C4 /* GameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
 		ACA0DB8A208F38E400A962C4 /* AddingGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingGameView.swift; sourceTree = "<group>"; };
+		ACC63AB22097F5BF001559F6 /* FilterGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterGame.swift; sourceTree = "<group>"; };
+		ACC63AB42097F65F001559F6 /* SaveGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveGame.swift; sourceTree = "<group>"; };
+		ACC63AB62097F7F4001559F6 /* GetCurrentYear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCurrentYear.swift; sourceTree = "<group>"; };
+		ACC63AB82097FF3C001559F6 /* UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerDelegate.swift; sourceTree = "<group>"; };
+		ACC63ABA20980013001559F6 /* ShowAddingGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAddingGameView.swift; sourceTree = "<group>"; };
+		ACC63ABF209801A7001559F6 /* HideAddingGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideAddingGameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +63,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC4F69FA2097DBE20096E555 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				ACC63AB22097F5BF001559F6 /* FilterGame.swift */,
+				ACC63AB42097F65F001559F6 /* SaveGame.swift */,
+				ACC63AB62097F7F4001559F6 /* GetCurrentYear.swift */,
+				ACC63ABC20980140001559F6 /* IBActions */,
+				AC4F69FF2097E45B0096E555 /* Delegates & Data Sources */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		AC4F69FF2097E45B0096E555 /* Delegates & Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AC4F6A002097E50A0096E555 /* Delegates */,
+				AC4F6A032097E64A0096E555 /* Data Source */,
+			);
+			path = "Delegates & Data Sources";
+			sourceTree = "<group>";
+		};
+		AC4F6A002097E50A0096E555 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				AC4F69F82097DBDA0096E555 /* UITableViewDelegate.swift */,
+				AC4F69FB2097DE490096E555 /* UIPickerViewDelegate.swift */,
+				AC4F69FD2097DF860096E555 /* UIImagePickerViewControllerDelegate.swift */,
+				ACC63AB82097FF3C001559F6 /* UIGestureRecognizerDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		AC4F6A032097E64A0096E555 /* Data Source */ = {
+			isa = PBXGroup;
+			children = (
+				AC4F6A012097E5860096E555 /* UITableViewDataSource.swift */,
+				AC683A2F2097E73E00047585 /* UIPickerViewDataSource.swift */,
+			);
+			path = "Data Source";
+			sourceTree = "<group>";
+		};
 		ACA0DB64208E126C00A962C4 = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				ACA0DB85208E331600A962C4 /* Supporting Files */,
+				AC4F69FA2097DBE20096E555 /* Extentions */,
 				ACA0DB72208E126C00A962C4 /* GamesViewController.swift */,
 				ACA0DB86208E3A7200A962C4 /* GameCell.swift */,
 				ACA0DB8A208F38E400A962C4 /* AddingGameView.swift */,
@@ -79,6 +143,15 @@
 				AC4AFE1420956733004BD25B /* MacPaw_Internship.xcdatamodeld */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ACC63ABC20980140001559F6 /* IBActions */ = {
+			isa = PBXGroup;
+			children = (
+				ACC63ABA20980013001559F6 /* ShowAddingGameView.swift */,
+				ACC63ABF209801A7001559F6 /* HideAddingGameView.swift */,
+			);
+			path = IBActions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,11 +225,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC4F69FE2097DF860096E555 /* UIImagePickerViewControllerDelegate.swift in Sources */,
 				ACA0DB8B208F38E400A962C4 /* AddingGameView.swift in Sources */,
+				AC4F69FC2097DE490096E555 /* UIPickerViewDelegate.swift in Sources */,
+				AC4F6A022097E5860096E555 /* UITableViewDataSource.swift in Sources */,
+				ACC63AC0209801A7001559F6 /* HideAddingGameView.swift in Sources */,
+				AC4F69F92097DBDA0096E555 /* UITableViewDelegate.swift in Sources */,
 				ACA0DB73208E126C00A962C4 /* GamesViewController.swift in Sources */,
+				ACC63ABB20980013001559F6 /* ShowAddingGameView.swift in Sources */,
+				ACC63AB92097FF3D001559F6 /* UIGestureRecognizerDelegate.swift in Sources */,
 				ACA0DB71208E126C00A962C4 /* AppDelegate.swift in Sources */,
 				AC4AFE1620956733004BD25B /* MacPaw_Internship.xcdatamodeld in Sources */,
+				AC683A302097E73E00047585 /* UIPickerViewDataSource.swift in Sources */,
 				ACA0DB87208E3A7200A962C4 /* GameCell.swift in Sources */,
+				ACC63AB72097F7F4001559F6 /* GetCurrentYear.swift in Sources */,
+				ACC63AB52097F65F001559F6 /* SaveGame.swift in Sources */,
+				ACC63AB32097F5BF001559F6 /* FilterGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

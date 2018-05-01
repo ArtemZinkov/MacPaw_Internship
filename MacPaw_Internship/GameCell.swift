@@ -16,16 +16,18 @@ class GameCell: UITableViewCell {
     @IBOutlet weak var poster: UIImageView!
 
     func fillCell(with object: Game) {
-        if let title = object.title {
-            self.title.text = title
+        if let titleText = object.title {
+            if let year = object.year, year != "" {
+                title.text = titleText + " (\(year))"
+            } else {
+                title.text = titleText
+            }
         }
-        if let year = object.year {
-            self.title.text = "(\(year))"
-        }
-        self.gameDescription.text = object.gameDescription
-        self.genre.text = object.genre
+ 
+        gameDescription.text = object.gameDescription
+        genre.text = object.genre
         if let pathToPoster = object.pathToPoster {
-            self.poster.image = UIImage(contentsOfFile: pathToPoster)
+            poster.image = UIImage(contentsOfFile: pathToPoster)
         }
     }
     
