@@ -27,7 +27,12 @@ class GameCell: UITableViewCell {
         gameDescription.text = object.gameDescription
         genre.text = object.genre
         if let pathToPoster = object.pathToPoster {
-            poster.image = UIImage(contentsOfFile: pathToPoster)
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: pathToPoster))
+                poster.image = UIImage(data: data)
+            } catch {
+                print(error.localizedDescription)
+            }
         }
     }
     

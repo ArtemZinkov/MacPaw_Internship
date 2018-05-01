@@ -7,6 +7,7 @@
 //
 
 import CoreData
+import UIKit
 
 extension GamesViewController {
     func save(from gameView: AddingGameView) {
@@ -14,12 +15,15 @@ extension GamesViewController {
         
         game.gameDescription = gameView.gameDescription.text
         game.title = gameView.title.text
-        game.pathToPoster = gameView.pathToPoster
         game.genre = genres[gameView.genrePicker.selectedRow(inComponent: 0)]
         game.year = years[gameView.datePicker.selectedRow(inComponent: 0)]
-        fetchedGames.append(game)
+        
+        let uniqueKey = (game.title ?? "") + (game.genre ?? "") + (game.year ?? "")
+
+        game.pathToPoster = gameView.poster.image?.save(for: uniqueKey)
         do {
             try container.viewContext.save()
+            fetchedGames.append(game)
         } catch {
             print(error.localizedDescription)
         }

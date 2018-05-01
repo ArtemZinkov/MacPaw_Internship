@@ -26,6 +26,7 @@
 		ACC63AB92097FF3D001559F6 /* UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC63AB82097FF3C001559F6 /* UIGestureRecognizerDelegate.swift */; };
 		ACC63ABB20980013001559F6 /* ShowAddingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC63ABA20980013001559F6 /* ShowAddingGameView.swift */; };
 		ACC63AC0209801A7001559F6 /* HideAddingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC63ABF209801A7001559F6 /* HideAddingGameView.swift */; };
+		ACC63AC220983D42001559F6 /* SaveImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC63AC120983D42001559F6 /* SaveImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		ACC63AB82097FF3C001559F6 /* UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerDelegate.swift; sourceTree = "<group>"; };
 		ACC63ABA20980013001559F6 /* ShowAddingGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAddingGameView.swift; sourceTree = "<group>"; };
 		ACC63ABF209801A7001559F6 /* HideAddingGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideAddingGameView.swift; sourceTree = "<group>"; };
+		ACC63AC120983D42001559F6 /* SaveImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			children = (
 				ACC63AB22097F5BF001559F6 /* FilterGame.swift */,
 				ACC63AB42097F65F001559F6 /* SaveGame.swift */,
+				ACC63AC120983D42001559F6 /* SaveImage.swift */,
 				ACC63AB62097F7F4001559F6 /* GetCurrentYear.swift */,
 				ACC63ABC20980140001559F6 /* IBActions */,
 				AC4F69FF2097E45B0096E555 /* Delegates & Data Sources */,
@@ -237,6 +240,7 @@
 				ACA0DB71208E126C00A962C4 /* AppDelegate.swift in Sources */,
 				AC4AFE1620956733004BD25B /* MacPaw_Internship.xcdatamodeld in Sources */,
 				AC683A302097E73E00047585 /* UIPickerViewDataSource.swift in Sources */,
+				ACC63AC220983D42001559F6 /* SaveImage.swift in Sources */,
 				ACA0DB87208E3A7200A962C4 /* GameCell.swift in Sources */,
 				ACC63AB72097F7F4001559F6 /* GetCurrentYear.swift in Sources */,
 				ACC63AB52097F65F001559F6 /* SaveGame.swift in Sources */,

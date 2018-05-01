@@ -11,9 +11,9 @@ import UIKit
 extension GamesViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        addGameView.pathToPoster = (info[UIImagePickerControllerImageURL] as! URL).path
+        
         addGameView.poster.alpha = 1.0
-        addGameView.poster.image = UIImage(contentsOfFile: addGameView.pathToPoster)
+        addGameView.poster.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         imagePicker.dismiss(animated: true, completion: nil)
     }
     

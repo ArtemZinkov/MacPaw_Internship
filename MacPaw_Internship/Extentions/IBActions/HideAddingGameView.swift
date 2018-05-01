@@ -18,9 +18,9 @@ extension GamesViewController {
         }) { [weak self] (success) in
             if let weakSelf = self {
                 weakSelf.view.bringSubview(toFront: weakSelf.tableView)
+                weakSelf.addGameView.clearView()
             }
         }
         save(from: addGameView)
-        addGameView.clearView()
     }
 }
