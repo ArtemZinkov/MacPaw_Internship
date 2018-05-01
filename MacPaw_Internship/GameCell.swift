@@ -16,6 +16,8 @@ class GameCell: UITableViewCell {
     @IBOutlet weak var poster: UIImageView!
 
     func fillCell(with object: Game) {
+        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! as URL
+
         if let titleText = object.title {
             if let year = object.year, year != "" {
                 title.text = titleText + " (\(year))"
@@ -26,9 +28,9 @@ class GameCell: UITableViewCell {
  
         gameDescription.text = object.gameDescription
         genre.text = object.genre
-        if let pathToPoster = object.pathToPoster {
+        if let uniqueKey = object.pathToPoster {
             do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: pathToPoster))
+                let data = try Data(contentsOf: documentsUrl.appendingPathComponent(uniqueKey))
                 poster.image = UIImage(data: data)
             } catch {
                 print(error.localizedDescription)

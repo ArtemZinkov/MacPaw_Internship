@@ -15,12 +15,9 @@ extension GamesViewController {
         
         game.gameDescription = gameView.gameDescription.text
         game.title = gameView.title.text
-        game.genre = genres[gameView.genrePicker.selectedRow(inComponent: 0)]
+        game.genre = Constants.genres[gameView.genrePicker.selectedRow(inComponent: 0)]
         game.year = years[gameView.datePicker.selectedRow(inComponent: 0)]
-        
-        let uniqueKey = (game.title ?? "") + (game.genre ?? "") + (game.year ?? "")
-
-        game.pathToPoster = gameView.poster.image?.save(for: uniqueKey)
+        game.pathToPoster = gameView.poster.image?.save()
         do {
             try container.viewContext.save()
             fetchedGames.append(game)

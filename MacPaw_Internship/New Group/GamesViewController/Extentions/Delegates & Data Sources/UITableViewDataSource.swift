@@ -11,7 +11,7 @@ import UIKit
 extension GamesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? GameCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier) as? GameCell {
             if filteredGames.count >= indexPath.row + 1 {
                 cell.fillCell(with: filteredGames[indexPath.row])
             }

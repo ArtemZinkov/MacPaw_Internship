@@ -12,7 +12,7 @@ extension GamesViewController: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == addGameView.genrePicker {
-            return genres[row]
+            return Constants.genres[row]
         } else {
             return years[row]
         }

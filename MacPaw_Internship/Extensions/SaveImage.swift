@@ -9,7 +9,8 @@
 import UIKit
 
 extension UIImage {
-    func save(for uniqueKey: String) -> String? {
+    func save() -> String? {
+        let uniqueKey = UUID().uuidString
         let fileManager = FileManager.default
         let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! as NSURL
         
@@ -25,7 +26,7 @@ extension UIImage {
         if let imageData = UIImageJPEGRepresentation(self, 1.0) {
             do {
                 try imageData.write(to: fileURL!, options: .atomic)
-                return fileURL?.path
+                return uniqueKey
             } catch {
                 print(error.localizedDescription)
             }

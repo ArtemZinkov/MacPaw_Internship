@@ -16,7 +16,7 @@ extension GamesViewController: UIPickerViewDataSource {
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == addGameView.genrePicker {
-            return genres.count
+            return Constants.genres.count
         } else {
             return years.count
         }

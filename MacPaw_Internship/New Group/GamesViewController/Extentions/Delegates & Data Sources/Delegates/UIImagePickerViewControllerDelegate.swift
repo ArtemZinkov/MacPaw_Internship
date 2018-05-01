@@ -8,10 +8,9 @@
 
 import UIKit
 
-extension GamesViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension GamesViewController {
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         addGameView.poster.alpha = 1.0
         addGameView.poster.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         imagePicker.dismiss(animated: true, completion: nil)

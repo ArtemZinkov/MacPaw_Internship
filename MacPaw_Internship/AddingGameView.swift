@@ -34,11 +34,41 @@ class AddingGameView: UIView {
         alpha = 0
         layer.cornerRadius = 5.0
         gameDescription.layer.cornerRadius = 5.0
-        let tap = UITapGestureRecognizer(target: delegate, action: #selector(delegate.handleTap(_:)))
-        tap.delegate = delegate
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        tap.delegate = self
         addGestureRecognizer(tap)
-        if delegate.view.frame.width < frame.width {
-            frame = CGRect(origin: frame.origin, size: CGSize(width: delegate.view.frame.width, height: frame.height))
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+
+        let ratio = delegate.view.frame.width / frame.width * 0.9
+        transform = CGAffineTransform(scaleX: ratio, y: ratio)
+    }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        let touchedDot = sender.location(in: self)
+        
+        if poster.frame.contains(touchedDot) {
+            delegate.imagePicker.sourceType = .photoLibrary
+            delegate.present(delegate.imagePicker, animated: true, completion: nil)
+        }
+        if !gameDescription.frame.contains(touchedDot) && !poster.frame.contains(touchedDot) {
+            endEditing(true)
+        }
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            frame.origin.y -= keyboardSize.height
+            frame.origin.y -= min(frame.origin.y, 0)
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if keyboardSize.origin.y != 0{
+                center = delegate.view.center
+            }
         }
     }
 }

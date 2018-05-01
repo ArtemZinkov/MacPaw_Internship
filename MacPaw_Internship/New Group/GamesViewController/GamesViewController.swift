@@ -9,20 +9,18 @@
 import UIKit
 import CoreData
 
-class GamesViewController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate {
+class GamesViewController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    lazy var container = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
-    lazy var frc = (UIApplication.shared.delegate as! AppDelegate).fetchedResultController
+    internal lazy var container = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+    internal lazy var frc = (UIApplication.shared.delegate as! AppDelegate).fetchedResultController
     
-    var filteredGames = [Game]() { didSet{ tableView.reloadData() } }
-    var fetchedGames = [Game]() { didSet { filteredGames = fetchedGames.filter { filterGame($0) } } }
-    var effect: UIVisualEffect!
-    var searchController: UISearchController!
-    var years = [String]()
+    internal var filteredGames = [Game]() { didSet{ tableView.reloadData() } }
+    internal var fetchedGames = [Game]() { didSet { filteredGames = fetchedGames.filter { filterGame($0) } } }
+    internal var effect: UIVisualEffect!
+    internal var searchController: UISearchController!
+    internal var years = [String]()
 
-    let cellIdentifier = "gameCell"
-    let genres = ["RPG", "Action", "Strategy", "Simulator"]
-    let imagePicker = UIImagePickerController()
+    internal let imagePicker = UIImagePickerController()
     
     @IBOutlet weak var addGameView: AddingGameView!
     @IBOutlet weak var tableView: UITableView!
@@ -38,7 +36,11 @@ class GamesViewController: UIViewController, UISearchResultsUpdating, UISearchBa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        setupGamesViewController()
+    }
+    
+    private func setupGamesViewController() {
+        imagePicker.delegate = self
         
         let currentYear = Date.getCurrentYear()
         for year in 1970...currentYear {
@@ -65,17 +67,10 @@ class GamesViewController: UIViewController, UISearchResultsUpdating, UISearchBa
         }
     }
 
-    @objc func handleTap(_ sender: UITapGestureRecognizer) {
-        if addGameView.poster.frame.contains(sender.location(in: addGameView)) {
-            imagePicker.sourceType = .photoLibrary
-            present(imagePicker, animated: true, completion: nil)
-        }
-    }
-    
     func presetSearchController() {
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
-        searchController.searchBar.scopeButtonTitles = ["Title", "Year", "Description", "Genre"]
+        searchController.searchBar.scopeButtonTitles = Constants.filterCategories
         searchController.searchBar.delegate = self
         definesPresentationContext = true
         navigationItem.searchController = searchController
