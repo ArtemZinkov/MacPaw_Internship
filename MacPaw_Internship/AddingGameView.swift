@@ -17,6 +17,7 @@ class AddingGameView: UIView {
     @IBOutlet weak var datePicker: UIPickerView!
     
     var pathToPoster = ""
+    var keyboardRect: CGRect?
     
     var delegate: GamesViewController!
  
@@ -52,23 +53,26 @@ class AddingGameView: UIView {
             delegate.imagePicker.sourceType = .photoLibrary
             delegate.present(delegate.imagePicker, animated: true, completion: nil)
         }
-        if !gameDescription.frame.contains(touchedDot) && !poster.frame.contains(touchedDot) {
+        
+        if let keyboardRect = keyboardRect, !keyboardRect.contains(touchedDot) {
             endEditing(true)
         }
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            frame.origin.y -= keyboardSize.height
-            frame.origin.y -= min(frame.origin.y, 0)
+            keyboardRect = keyboardSize
+//            frame.origin.y -= keyboardSize.height
+//            frame.origin.y -= min(frame.origin.y, 0)
         }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if keyboardSize.origin.y != 0{
-                center = delegate.view.center
-            }
+//            if keyboardSize.origin.y != 0{
+//                center = delegate.view.center
+//            }
         }
+        keyboardRect = nil
     }
 }

@@ -16,7 +16,6 @@ class GameCell: UITableViewCell {
     @IBOutlet weak var poster: UIImageView!
 
     func fillCell(with object: Game) {
-        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! as URL
 
         if let titleText = object.title {
             if let year = object.year, year != "" {
@@ -29,13 +28,20 @@ class GameCell: UITableViewCell {
         gameDescription.text = object.gameDescription
         genre.text = object.genre
         if let uniqueKey = object.pathToPoster {
-            do {
-                let data = try Data(contentsOf: documentsUrl.appendingPathComponent(uniqueKey))
-                poster.image = UIImage(data: data)
-            } catch {
-                print(error.localizedDescription)
-            }
+            poster.image = getImage(by: uniqueKey)
         }
+    }
+    
+    private func getImage(by uniqueKey: String) -> UIImage? {
+        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! as URL
+        do {
+            let data = try Data(contentsOf: documentsUrl.appendingPathComponent(uniqueKey))
+            return UIImage(data: data)
+        } catch {
+            print(error.localizedDescription)
+        }
+        return nil
+
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

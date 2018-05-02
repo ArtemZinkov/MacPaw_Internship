@@ -76,6 +76,10 @@ class GamesViewController: UIViewController, UISearchResultsUpdating, UISearchBa
         navigationItem.searchController = searchController
     }
     
+    @objc func doneAction() {
+        navigationItem.searchController?.searchBar.endEditing(true)
+    }
+    
     // Delegate Functions
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         filteredGames = fetchedGames.filter { filterGame($0) }
