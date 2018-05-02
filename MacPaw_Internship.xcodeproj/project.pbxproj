@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC43A1732099E667005F958B /* LocalNetworkDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC43A1722099E667005F958B /* LocalNetworkDB.swift */; };
 		AC4AFE1620956733004BD25B /* MacPaw_Internship.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC4AFE1420956733004BD25B /* MacPaw_Internship.xcdatamodeld */; };
 		AC4F69F92097DBDA0096E555 /* UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4F69F82097DBDA0096E555 /* UITableViewDelegate.swift */; };
 		AC4F69FC2097DE490096E555 /* UIPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4F69FB2097DE490096E555 /* UIPickerViewDelegate.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC43A1722099E667005F958B /* LocalNetworkDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNetworkDB.swift; sourceTree = "<group>"; };
 		AC4AFE1520956733004BD25B /* MacPaw_Internship.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MacPaw_Internship.xcdatamodel; sourceTree = "<group>"; };
 		AC4F69F82097DBDA0096E555 /* UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewDelegate.swift; sourceTree = "<group>"; };
 		AC4F69FB2097DE490096E555 /* UIPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPickerViewDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				ACA0DB70208E126C00A962C4 /* AppDelegate.swift */,
 				ACC63ACA20986AE8001559F6 /* Constants.swift */,
+				AC43A1722099E667005F958B /* LocalNetworkDB.swift */,
 				ACA0DB7A208E127100A962C4 /* Assets.xcassets */,
 				ACA0DB7C208E127100A962C4 /* LaunchScreen.storyboard */,
 				ACA0DB7F208E127100A962C4 /* Info.plist */,
@@ -262,6 +265,7 @@
 				AC4F6A022097E5860096E555 /* UITableViewDataSource.swift in Sources */,
 				ACC63AC620986969001559F6 /* GamesViewController.swift in Sources */,
 				ACC63AC0209801A7001559F6 /* HideAddingGameView.swift in Sources */,
+				AC43A1732099E667005F958B /* LocalNetworkDB.swift in Sources */,
 				AC4F69F92097DBDA0096E555 /* UITableViewDelegate.swift in Sources */,
 				ACC63ABB20980013001559F6 /* ShowAddingGameView.swift in Sources */,
 				ACC63AB92097FF3D001559F6 /* UIGestureRecognizerDelegate.swift in Sources */,

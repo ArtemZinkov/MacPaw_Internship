@@ -68,11 +68,11 @@ class AddingGameView: UIView {
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
 //            if keyboardSize.origin.y != 0{
 //                center = delegate.view.center
 //            }
-        }
+//        }
         keyboardRect = nil
     }
 }

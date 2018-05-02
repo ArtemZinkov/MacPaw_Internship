@@ -7,12 +7,8 @@
 //
 
 import UIKit
-import CoreData
 
 class GamesViewController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    internal lazy var container = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
-    internal lazy var frc = (UIApplication.shared.delegate as! AppDelegate).fetchedResultController
     
     internal var filteredGames = [Game]() { didSet{ tableView.reloadData() } }
     internal var fetchedGames = [Game]() { didSet { filteredGames = fetchedGames.filter { filterGame($0) } } }
@@ -55,16 +51,7 @@ class GamesViewController: UIViewController, UISearchResultsUpdating, UISearchBa
         
         effect = visualBlur.effect
         visualBlur.effect = nil
-        do {
-            try frc.performFetch()
-            if let tempValue = frc.fetchedObjects {
-                fetchedGames = tempValue
-            } else {
-                fetchedGames = []
-            }
-        } catch {
-            print(error.localizedDescription)
-        }
+        fetchedGames = LocalNetworkDB.fetchGames()
     }
 
     func presetSearchController() {

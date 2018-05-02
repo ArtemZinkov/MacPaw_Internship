@@ -10,19 +10,16 @@ import CoreData
 import UIKit
 
 extension GamesViewController {
-    func save(from gameView: AddingGameView) {
-        let game = NSEntityDescription.insertNewObject(forEntityName: "Game", into: container.viewContext) as! Game
-        
-        game.gameDescription = gameView.gameDescription.text
-        game.title = gameView.title.text
-        game.genre = Constants.genres[gameView.genrePicker.selectedRow(inComponent: 0)]
-        game.year = years[gameView.datePicker.selectedRow(inComponent: 0)]
-        game.pathToPoster = gameView.poster.image?.save()
-        do {
-            try container.viewContext.save()
+    func save(from gameView: AddingGameView) {        
+        let gameParameters = (
+            title: gameView.title.text ?? "",
+            gameDescription: gameView.gameDescription.text ?? "",
+            genre: Constants.genres[gameView.genrePicker.selectedRow(inComponent: 0)],
+            year: years[gameView.datePicker.selectedRow(inComponent: 0)],
+            pathToPoster: gameView.poster.image?.save() ?? ""
+        )
+        if let game = LocalNetworkDB.saveGame(gameParameters: gameParameters) {
             fetchedGames.append(game)
-        } catch {
-            print(error.localizedDescription)
         }
     }
 }

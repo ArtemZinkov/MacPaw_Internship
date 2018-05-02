@@ -1,5 +1,5 @@
 //
-//  gameCell.swift
+//  GameCell.swift
 //  MacPaw_Internship
 //
 //  Created by Artem on 23.04.2018.
@@ -28,20 +28,8 @@ class GameCell: UITableViewCell {
         gameDescription.text = object.gameDescription
         genre.text = object.genre
         if let uniqueKey = object.pathToPoster {
-            poster.image = getImage(by: uniqueKey)
+            poster.image = LocalNetworkDB.getImage(by: uniqueKey)
         }
-    }
-    
-    private func getImage(by uniqueKey: String) -> UIImage? {
-        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! as URL
-        do {
-            let data = try Data(contentsOf: documentsUrl.appendingPathComponent(uniqueKey))
-            return UIImage(data: data)
-        } catch {
-            print(error.localizedDescription)
-        }
-        return nil
-
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
