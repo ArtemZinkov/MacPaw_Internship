@@ -10,14 +10,22 @@ import UIKit
 
 class GamesViewController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    internal var filteredGames = [Game]() { didSet{ tableView.reloadData() } }
-    internal var fetchedGames = [Game]() { didSet { filteredGames = fetchedGames.filter { filterGame($0) } } }
-    internal var effect: UIVisualEffect!
-    internal var searchController: UISearchController!
-    internal var years = [String]()
+    // Protected variables
+    private var filteredGamesProtected = [Game]() { didSet{ tableView.reloadData() } }
+    private var fetchedGamesProtected = [Game]() { didSet { filteredGamesProtected = fetchedGamesProtected.filter { filterGame($0) } } }
+    private var effectProtected: UIVisualEffect!
+    private var searchControllerProtected: UISearchController!
+    private let imagePickerProtected = UIImagePickerController()
+    private var yearsProtected = [String]()
 
-    internal let imagePicker = UIImagePickerController()
-    
+    // Public Read-Only access to private variables
+    public var years: [String] { return yearsProtected }
+    public var searchController: UISearchController!{ return searchControllerProtected }
+    public var imagePicker: UIImagePickerController { return imagePickerProtected }
+    public var filteredGames: [Game] { return filteredGamesProtected }
+    public var fetchedGames: [Game] { return fetchedGamesProtected }
+    public var effect: UIVisualEffect! { return effectProtected }
+
     @IBOutlet weak var addGameView: AddingGameView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var visualBlur: UIVisualEffectView!
@@ -40,27 +48,36 @@ class GamesViewController: UIViewController, UISearchResultsUpdating, UISearchBa
         
         let currentYear = Date.getCurrentYear()
         for year in 1970...currentYear {
-            years.append(String(year))
+            yearsProtected.append(String(year))
         }
-        years.reverse()
+        yearsProtected.reverse()
         
         presetSearchController()
         view.addSubview(addGameView)
         addGameView.delegate = self
         addGameView.preset()
         
-        effect = visualBlur.effect
+        effectProtected = visualBlur.effect
         visualBlur.effect = nil
-        fetchedGames = LocalNetworkDB.fetchGames()
+        fetchedGamesProtected = LocalNetworkDB.fetchGames()
     }
 
-    func presetSearchController() {
-        searchController = UISearchController(searchResultsController: nil)
+    private func presetSearchController() {
+        searchControllerProtected = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.searchBar.scopeButtonTitles = Constants.filterCategories
         searchController.searchBar.delegate = self
         definesPresentationContext = true
         navigationItem.searchController = searchController
+    }
+    
+    func appendToGamelist(new game: Game) {
+        fetchedGamesProtected.append(game)
+    }
+    
+    func deblurView() {
+        effectProtected = visualBlur.effect
+       visualBlur.effect = nil
     }
     
     @objc func doneAction() {
@@ -69,14 +86,14 @@ class GamesViewController: UIViewController, UISearchResultsUpdating, UISearchBa
     
     // Delegate Functions
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        filteredGames = fetchedGames.filter { filterGame($0) }
+        filteredGamesProtected = fetchedGames.filter { filterGame($0) }
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        filteredGames = fetchedGames.filter { filterGame($0) }
+        filteredGamesProtected = fetchedGames.filter { filterGame($0) }
     }
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        filteredGames = fetchedGames.filter { filterGame($0) }
+        filteredGamesProtected = fetchedGames.filter { filterGame($0) }
     }
 }

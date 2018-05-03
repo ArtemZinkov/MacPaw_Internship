@@ -19,7 +19,8 @@ extension GamesViewController {
             pathToPoster: gameView.poster.image?.save() ?? ""
         )
         if let game = LocalNetworkDB.saveGame(gameParameters: gameParameters) {
-            fetchedGames.append(game)
+            appendToGamelist(new: game)
+            //fetchedGames.append(game)
         }
     }
 }
