@@ -77,13 +77,17 @@ class GamesViewController: UIViewController, UISearchResultsUpdating, UISearchBa
     
     func deblurView() {
         effectProtected = visualBlur.effect
-       visualBlur.effect = nil
+        visualBlur.effect = nil
     }
     
     @objc func doneAction() {
         navigationItem.searchController?.searchBar.endEditing(true)
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        addGameView.center = CGPoint(x: size.width/2, y: size.height/2)
+    }
+
     // Delegate Functions
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         filteredGamesProtected = fetchedGames.filter { filterGame($0) }

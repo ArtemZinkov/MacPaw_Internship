@@ -140,7 +140,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vdk-D0-Qv0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EL3-Ly-fYI" customClass="AddingGameView" customModule="MacPaw_Internship" customModuleProvider="target">
+                <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="EL3-Ly-fYI" customClass="AddingGameView" customModule="MacPaw_Internship" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="413" height="484"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T9T-yb-WT1">

@@ -41,6 +41,7 @@ class AddingGameView: UIView {
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChangeFrame), name: NSNotification.Name.UIKeyboardDidChangeFrame, object: nil)
 
         let ratio = delegate.view.frame.width / frame.width * 0.9
         transform = CGAffineTransform(scaleX: ratio, y: ratio)
@@ -66,7 +67,13 @@ class AddingGameView: UIView {
 //            frame.origin.y -= min(frame.origin.y, 0)
         }
     }
-    
+
+    @objc func keyboardDidChangeFrame(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            keyboardRect = keyboardSize
+        }
+    }
+
     @objc func keyboardWillHide(notification: NSNotification) {
 //        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
 //            if keyboardSize.origin.y != 0{
